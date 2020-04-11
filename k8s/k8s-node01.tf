@@ -1,4 +1,7 @@
 # instance the provider
+# provider "libvirt" {
+#   uri = "qemu:///system"
+# }
 
 resource "libvirt_pool" "bionic-k8s-node01" {
   name = "bionic-k8s-node01"
