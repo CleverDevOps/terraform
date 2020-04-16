@@ -53,7 +53,7 @@ resource "libvirt_domain" "domain-k8s-master" {
   cloudinit = libvirt_cloudinit_disk.cloudinit_k8s_master.id
 
   network_interface {
-    network_name = "br0"
+    bridge = "br0"
     mac = "52:54:00:4e:a7:a0"
   }
 

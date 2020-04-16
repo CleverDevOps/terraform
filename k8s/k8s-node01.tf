@@ -1,4 +1,4 @@
-# instance the provider
+#instance the provider
 # provider "libvirt" {
 #   uri = "qemu:///system"
 # }
@@ -21,7 +21,7 @@ resource "libvirt_volume" "k8s-node01" {
   name           = "disk"
   base_volume_id = libvirt_volume.ubuntu-qcow2-k8s-node01.id
   pool           = libvirt_pool.bionic-k8s-node01.name
-  size           = 107374182400
+  size           = 536870912000
 }
 
 
@@ -53,7 +53,7 @@ resource "libvirt_domain" "domain-k8s-node01" {
   cloudinit = libvirt_cloudinit_disk.cloudinit_k8s_node01.id
 
   network_interface {
-    network_name = "br0"
+    bridge = "br0"
     mac = "52:54:00:4e:a7:a1"
   }
 
